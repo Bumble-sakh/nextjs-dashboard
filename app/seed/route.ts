@@ -1,9 +1,6 @@
 import bcrypt from "bcrypt";
-import { neon } from "@neondatabase/serverless";
 import { invoices, customers, revenue, users } from "../lib/placeholder-data";
-
-const DB_URL = process.env.POSTGRES_URL ?? "";
-const sql = neon(DB_URL);
+import { sql } from "../config/db";
 
 async function seedUsers() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
